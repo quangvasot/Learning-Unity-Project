@@ -8,7 +8,7 @@ public class Rotate : MonoBehaviour
     public GameObject Bullet1;
     public GameObject Bullet2;
     public float bulletspeed = 30f;
-    void Update()   
+    void Update()
     {
         //player stuff
         Vector3 mousePos = Input.mousePosition;
@@ -21,19 +21,24 @@ public class Rotate : MonoBehaviour
         //shooting stuff
         Vector3 aimDir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float aimAngle = Mathf.Atan2(aimDir.x, aimDir.y) * Mathf.Rad2Deg;
-        if (Input.GetButtonDown("Fire1"))   
+        if (Input.GetButtonDown("Fire1"))
         {
             GameObject bulletclone1 = Instantiate(Bullet1);
             bulletclone1.transform.position = Player.position;
             bulletclone1.transform.rotation = Quaternion.identity;
-            bulletclone1.GetComponent<Rigidbody2D>().velocity = Player.right * bulletspeed ;
+            bulletclone1.GetComponent<Rigidbody2D>().velocity = Player.right * bulletspeed;
+            //destroy d bulletzz
+            Destroy(bulletclone1, 2);
         }
+
         if (Input.GetButtonDown("Fire2"))
         {
             GameObject bulletclone2 = Instantiate(Bullet2);
             bulletclone2.transform.position = Player.position;
             bulletclone2.transform.rotation = Quaternion.identity;
             bulletclone2.GetComponent<Rigidbody2D>().velocity = Player.right * bulletspeed;
+            //destroy d bulletzz
+            Destroy(bulletclone2,2);
         }
     }
 }
