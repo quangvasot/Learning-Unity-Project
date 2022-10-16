@@ -27,7 +27,7 @@ public class SpawnManager : MonoBehaviour
             for (int i = 0; i < numObjects; i++)
             {
                 int a = i * Random.Range(1, 60);
-                Vector3 pos = RandomCircle(center, 6.0f, a);
+                Vector3 pos = RandomCircle(center, 12.0f, a);
                 Instantiate(Enemy, pos, Quaternion.identity);
             }
             getCount = GameObject.FindGameObjectsWithTag("Enemy");
